@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset ="utf-8">
+        <meta name="viewport" content="width-device-width">
+     <title>New Patient</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+        
+        
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="box">
+                <div>
+                    <img src="images/postpartum.png" class="icon">
+                    <h1>Postpartum Sepsis/SSI <span>|</span> OBYGYN</h1>
+                </div>
+                
+                <form class="npform" action="./patients.html" method="post">
+                    <div class="row">
+                        <div class="column">                
+                            <!-- style="background-color:#aaa;" -->
+                            <label >GID</label> 
+                            <div class="newpatient">
+                                <input type="text" placeholder="Enter the globle ID">  
+                            </div>
+                                <label> First Name</label>
+                            <div class="newpatient">
+                                <input type="text" placeholder="Enter the first name">  
+                            </div>
+                            <label> Last Name</label>
+                            <div class="newpatient">
+                                <input type="text" placeholder="Enter the last name">  
+                            </div>
+                            <label>DOB</label>
+                            <div class="newpatient">
+                                <input type="date"placeholder="Enter the date of birth">  
+                            </div>
+                        </div> 
+                        <!-- end of columnn -->
+
+                        <div class="column">
+                            <label>Delivery Date</label> 
+                            <div class="newpatient">
+                                <input type="date" placeholder="Enter the delivery date">  
+                            </div>
+                                <label>Blood Pressure</label>
+                                <div class="newpatient">
+                                <input type="number" placeholder="Enter the blood pressure" min="0">  
+                            </div>
+                            <label> Blood Group</label>
+                            <div class="newpatient">
+                                <!-- <input type="text" placeholder="Enter the last name">   -->
+                                <select id="bloodGroup" name="bloodGroup">
+                                    <option value="" disabled selected hidden>Select the Blood Group</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of row class -->
+                    <div class="panel-footer">
+                        <input type="submit" value="Add new Patient">
+                       <a href="./patients.html" class="option" style="margin: 0 auto; text-align: center;">Cancel</a>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
