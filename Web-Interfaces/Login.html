@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all.min.css">
         
-        
     </head>
     
     <body>
@@ -17,23 +16,77 @@
                     <img src="images/postpartum.png" class="icon">
                     <h1>Postpartum Sepsis/SSI <span>|</span> OBYGYN</h1>
                 </div>
-                
-                <form action="./patients.html" method="get" class="form">
-                    <label>ID</label>
+                <div id="message-error" class="error-txt"></div>
+                <!-- <div class="field error error-txt">The username/password incorrect, try again</div> -->
+                <form action="./patients.html" method="get" class="form" onsubmit="return form_validation();" autocomplete="on" id="form">
                     
-                    <div>
+                    <label>Username</label>
+                    
+                    <div class="username">
                         <i class="fa-solid fa-id-card-clip"></i>
-                    <input type="text" placeholder="Enter your ID" required>
+                    <input type="text" placeholder="Enter your Username" id="username">
+               
                     </div>
                     <label>Password</label>
-                <div>
+                <div class="password">
                      <i class="fa-solid fa-key"></i>
-                    <input type="password" placeholder="Enter your password" required>  
+                    <input type="password" placeholder="Enter your password" id="password">  
                 </div>
                    <nav> <a href="./restpass.html" class="forgot">Forgot Password?</a>
+                    
                     <input type="submit" value="Login"></nav>
                 </form>
             </div>
         </div>
     </body>
 </html>
+<script>
+// The username/password incorrect try again
+//message-error
+function setErrorFor(input,message_id,message) {
+            var formControl = input.parentElement;
+            formControl.className = 'form-control error';
+            document.getElementById(message_id).innerHTML=message;
+        }//end setErrorFor
+        
+        
+        function setSuccessFor(input,message_id) {
+            var formControl = input.parentElement;
+            formControl.className = 'form-control success';
+            document.getElementById(message_id).innerHTML="";
+        }//end setSuccessFor
+        function isValid(field) {
+	        return /^[a-zA-Z0-9]+$/.test(field);
+            console.log(/^[a-zA-Z0-9]+$/.test(field));
+        } //end isValid
+
+        function form_validation(){
+            var valid=true;
+            var username = document.forms["form"]["username"];
+             var password = document.forms["form"]["password"];
+
+             if (username.value == "" ) {
+                     setErrorFor(username,"message-error","The Username/Password empty,Please try again.");
+                     valid=false;
+                     console.log(valid);
+                }else if (!isValid(username.value) || username.value.length<4) {
+	               	 setErrorFor(username,"message-error","The Username/Password incorrect,Please try again.");
+                     valid=false;
+                 }else{
+                     setSuccessFor(username,"message-error");
+                 }
+                 console.log(valid);
+                 if (password.value == "" ) {
+                     setErrorFor(password,"message-error","The Username/Password empty,Please try again.");
+                     valid=false;
+                }else if (!isValid(password.value) || password.value.length<8) {
+	               	 setErrorFor(password,"message-error","The Username/Password incorrect,Please try again.");
+                     valid=false;
+                 }else{
+                     setSuccessFor(password,"message-error");
+                 }
+                 console.log(valid);
+                 return  valid;
+        }
+
+</script>

@@ -18,16 +18,16 @@
                     <h1>Postpartum Sepsis/SSI <span>|</span> OBYGYN</h1>
                     <!-- <h2></h2> -->
                 </div>
-                
-                <form class="form" action="./Login.html" method="get">
+                <div id="message-error" class="error-txt"></div>
+                <form class="form" action="./Login.html" method="get" onsubmit="return form_validation();" autocomplete="on" id="form">
                     <label> New Password</label>
                 <div>
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Enter your new password">  
+                    <input type="password" placeholder="Enter your new password" id="password1">  
                 </div>
                 <div>
                     <i class="fa-solid fa-key"></i>
-                    <input type="password" placeholder="Confirm your new password">  
+                    <input type="password" placeholder="Confirm your new password" id="password2">  
                 </div>
                     <!-- <a href="#" class="forgot">Forgot Password?</a> -->
                     <input type="submit" value="Confirm">
@@ -36,3 +36,49 @@
         </div>
     </body>
 </html>
+<script>
+// The username/password incorrect try again
+//message-error
+function setErrorFor(input,message_id,message) {
+            var formControl = input.parentElement;
+            formControl.className = 'form-control error';
+            document.getElementById(message_id).innerHTML=message;
+        }//end setErrorFor
+        
+        
+        function setSuccessFor(input,message_id) {
+            var formControl = input.parentElement;
+            formControl.className = 'form-control success';
+            document.getElementById(message_id).innerHTML="";
+        }//end setSuccessFor
+
+        function form_validation(){
+            var valid=false;
+            var password1 = document.forms["form"]["password1"];
+             var password2 = document.forms["form"]["password2"];
+
+             
+                 console.log(valid+"0");
+                 if (password1.value == "" || password2.value == "") {
+                     setErrorFor(password1,"message-error","Please fill the Empty Field.");
+                     valid=false;
+                     console.log(valid+"1");
+                }else if (password1.value.length<8 || password2.value.length<8 ) {
+	               	 setErrorFor(password1,"message-error","The Password is incorrect,Please try again.");
+                     valid=false;
+                    console.log(valid+"2");
+                }else if(password1.value!=password2.value){ 
+                     setErrorFor(password1,"message-error","The Password is unmatched,Please try again.");
+                     valid=false;
+                    console.log(valid+"3");
+                }else{
+                     setSuccessFor(password,"message-error");
+                    console.log(valid+"4");
+                 }
+             
+
+                 console.log(valid+"5");
+                 return  valid;
+        }
+
+</script>

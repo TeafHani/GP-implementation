@@ -197,7 +197,7 @@
     /* max-width: 700px; */
     padding: 15px;
     /* margin-top: 200px; */
-    margin:10px;
+    margin:20px;
     /* margin-left: 25%; */
     border-radius: 250px;
 }
@@ -272,7 +272,7 @@ width: 50%;
     display: flex;
     align-items: center;
     /* border-bottom: 1px solid var(--gray-color); */
-    max-width: 100%;
+    max-width: 1080px;
     }
 .newpatient select{
     max-width: 800px;
@@ -281,7 +281,7 @@ width: 50%;
     border: none;
     color: gray;
 }
-.npform .panel-footer input[type="submit"] {
+.npform .panel-footer input[type="submit"]{
         font-size: 16px;
         font-weight: 800;
     /*    text-transform: uppercase;*/
@@ -308,7 +308,7 @@ width: 50%;
         margin-left: 1%;
         /* margin: 20%; */
     }
-    .newpatient input::placeholder{
+.newpatient input::placeholder{
         opacity: 1;
         color: var(--gray-color);
         font-size: 12px;
@@ -347,22 +347,62 @@ width: 50%;
   }
   .patientinfc1{
     background-color: #5772a3;
+    background-image: linear-gradient(to right,  #5772a3 , #254885);
     border-radius: 10%;
     /* max-width: 800px; */
     width: 100%;
     height: 100%;
     /* display: block; */
   }
-.h2{
+.patientinfc1 .h2{
     color: white;
     padding: 20px 10px 10px 10px;
     margin-left: 5%;
+    font-weight:800;
   }
   .patientinfc2{
     background-color:#5f9ac6;
+    background-image: linear-gradient(to right,  #5772a3 , #5f9ac6);
+
     border-radius: 15%;
-    width: 50%;
+    width: 65%;
     height: 50%;
     margin: 0 auto;
     margin-top: 25%;
+    text-align: center;
   }
+  .patientinfc1 .info{
+    color: white;
+    margin-left: 5%;
+    font-size: 20px;
+  }
+ .patientinfc1 .info p{
+    margin-top: 2.5%;
+  }
+  .patientinfc2 .h2{
+    color: black;
+    padding: 20px 10px 10px 10px;
+    margin-left: 5%;
+    font-weight:800;
+    padding-top: 15%;
+  }
+.patientinfc2 .info{
+    color: black;
+    margin-left: 5%;
+    font-size: 20px;
+}
+.patientinfc2 .info p{
+    margin-top: 2.5%;
+}
+.mmHg{
+    position: relative;
+    left: 47%;
+    bottom: 10%;
+}
+ .error-txt{
+  color: #dc3545;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+ 

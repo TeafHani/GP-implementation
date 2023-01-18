@@ -18,12 +18,12 @@
                     <h1>Postpartum Sepsis/SSI <span>|</span> OBYGYN</h1>
                     <!-- <h2></h2> -->
                 </div>
-                
-                <form class="form" action="./newpass.html" method="get">
-                    <label>ID</label>
+                <div id="message-error" class="error-txt"></div>
+                <form class="form" action="./newpass.html" method="get" onsubmit="return form_validation();" autocomplete="on" id="form">
+                    <label>Username</label>
                 <div>
                     <i class="fa-solid fa-id-card-clip"></i>
-                    <input type="text" placeholder="Enter your ID">  
+                    <input type="text" placeholder="Enter your Username" id="username">  
                 </div>
                     <!-- <a href="#" class="forgot">Forgot Password?</a> -->
                     <input type="submit" value="Reset Password">
@@ -32,3 +32,43 @@
         </div>
     </body>
 </html>
+<script>
+    // The username/password incorrect try again
+    //message-error
+    function setErrorFor(input,message_id,message) {
+                var formControl = input.parentElement;
+                formControl.className = 'form-control error';
+                document.getElementById(message_id).innerHTML=message;
+            }//end setErrorFor
+            
+            
+            function setSuccessFor(input,message_id) {
+                var formControl = input.parentElement;
+                formControl.className = 'form-control success';
+                document.getElementById(message_id).innerHTML="";
+            }//end setSuccessFor
+            function isValid(field) {
+                return /^[a-zA-Z0-9]+$/.test(field);
+                console.log(/^[a-zA-Z0-9]+$/.test(field));
+            } //end isValid
+    
+            function form_validation(){
+                var valid=true;
+                var username = document.forms["form"]["username"];
+    
+                 if (username.value == "" ) {
+                         setErrorFor(username,"message-error","The Username is Empty,Please try again.");
+                         valid=false;
+                         console.log(valid);
+                    }else if (!isValid(username.value) || username.value.length<4) {
+                            setErrorFor(username,"message-error","The Username is incorrect,Please try again.");
+                         valid=false;
+                     }else{
+                         setSuccessFor(username,"message-error");
+                     }
+                    
+                     return  valid;
+            }
+    
+    </script>
+    
